@@ -1,0 +1,35 @@
+<h2>Hero List</h2>
+
+<p><i>Pick a hero from the list</i></p>
+<ul>
+  <li *ngFor="let hero of heroes" (click)="selectHero(hero)">
+    {{hero.name}}
+  </li>
+</ul>
+<input type="radio" id="male" name="gender" value="male" checked (click)= "clickMale()">
+<label for="male">Male</label>
+ <button style="background-color:Orange;" [disabled]="!isCheckedMale" >Button1 </button> <br>
+<input type="radio" id="female" name="gender" value="female"  (click)= "clickFemale()">
+<label for="female">Female</label>
+<button style="background-color:Orange;" [disabled]="!isCheckedFemale">Button2 </button><br>
+<input type="radio" id="other" name="gender" value="other" (click)= "clickOther()">
+<label for="other">Other</label><button style="background-color:Orange;" [disabled]="!isCheckedOther" >Button3</button><br>
+
+<select  (change)= "selected($event)">
+  <option *ngFor="let a of data" [value]="a.id">
+        {{a.name}}
+    </option>
+</select><br>
+<input (keyup)="onKey($event)">
+<br>
+<button (click) ="testClick()">Test</button>
+
+
+
+<app-hero-detail *ngIf="selectedHero" [hero]="selectedHero" (voteSize)="getInput($event)"></app-hero-detail> <br>
+
+<!-- 
+Copyright Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+-->
